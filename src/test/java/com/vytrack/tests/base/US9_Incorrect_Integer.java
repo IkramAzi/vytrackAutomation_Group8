@@ -94,7 +94,6 @@ public class US9_Incorrect_Integer {
         Driver.closeDriver();
     }
 
-
     @Test(priority = 3)
     public void invalidInteger_storeManager() throws InterruptedException {
         //Navigate to VTrack.com
