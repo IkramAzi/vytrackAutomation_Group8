@@ -22,7 +22,12 @@ public class US9_Incorrect_Integer {
         Driver.getDriver().findElement(By.xpath("//input[@name='_password']")).sendKeys(ConfigurationReader.getProperty("driver_password"));
         Driver.getDriver().findElement(By.xpath("//button[@id='_submit']")).click();
         //click Activities
-        Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[3]")).click();
+        WebElement activity = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[3]"));
+        //Actions to see texts on Activities
+        Actions actions=new Actions(Driver.getDriver());
+        actions.moveToElement(activity).pause(1000)
+                            .perform();
+
         //click Calender Event
         Driver.getDriver().findElement(By.xpath("//span[.='Calendar Events']")).click();
         Thread.sleep(3000);
@@ -57,12 +62,13 @@ public class US9_Incorrect_Integer {
         Driver.getDriver().findElement(By.xpath("//input[@name='_password']")).sendKeys(ConfigurationReader.getProperty("driver_password"));
         Driver.getDriver().findElement(By.xpath("//button[@id='_submit']")).click();
         Driver.getDriver().findElement(By.xpath("//body")).click();
-        //click Activities
+        //hover over  Activities
         WebElement activity = Driver.getDriver().findElement(By.xpath("//div[@id='main-menu']/ul/li[5]/a[@href='#']/span[@class='title title-level-1']"));
-        //click Calender Event
+        //Actions to see texts on Activities
         Actions actions=new Actions(Driver.getDriver());
         actions.moveToElement(activity).pause(1000)
                 .perform();
+        //click Calender Event
         Driver.getDriver().findElement(By.xpath("//span[.='Calendar Events']")).click();
         BrowserUtils.sleep(3);
         //Click create Calendar Events
@@ -96,11 +102,14 @@ public class US9_Incorrect_Integer {
         Driver.getDriver().findElement(By.xpath("//input[@name='_username']")).sendKeys(ConfigurationReader.getProperty("store_manager_username"));
         Driver.getDriver().findElement(By.xpath("//input[@name='_password']")).sendKeys(ConfigurationReader.getProperty("driver_password"));
         Driver.getDriver().findElement(By.xpath("//button[@id='_submit']")).click();
-        //click Activities
-        Driver.getDriver().findElement(By.xpath("//div[@id='main-menu']/ul/li[5]/a[@href='#']/span[@class='title title-level-1']")).click();
-        //click Calender Event
+        //hover over Activities
+        WebElement activity = Driver.getDriver().findElement(By.xpath("//div[@id='main-menu']/ul/li[5]/a[@href='#']/span[@class='title title-level-1']"));
+        //Actions to see texts on Activities
+        Actions actions=new Actions(Driver.getDriver());
+        actions.moveToElement(activity).pause(1000)
+                .perform();
         Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-2'])[14]")).click();
-        //Thread.sleep(3000);
+        BrowserUtils.sleep(3);
         //Click create Calendar Events
         Driver.getDriver().findElement(By.xpath("//a[@title='Create Calendar event']")).click();
         //Check  Repeat check box
